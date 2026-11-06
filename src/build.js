@@ -245,10 +245,10 @@ ${gtmNoscript()}
 <div id="productGrid" class="max-w-7xl mx-auto px-4 grid sm:grid-cols-2 md:grid-cols-3 gap-10">
 ${P.items.map((p, i) => `  <div class="bg-white rounded-xl shadow p-6 relative">
     <span class="absolute top-4 right-4 bg-green-600 text-white text-xs px-3 py-1 rounded-full">In Stock</span>
-    <img src="${p.img}" alt="${esc(p.name)}" class="rounded mb-4 w-full h-40 object-cover">
+    <img src="${p.img}" alt="${esc(p.name)}" class="rounded mb-4 w-full h-56 object-contain">
     <h3 class="text-xl font-semibold">${esc(p.name)}</h3>
     <p class="text-sm text-gray-500">${esc(p.unit)}</p>
-    <p class="text-2xl font-bold text-accent mt-2">KSh ${p.price}</p>
+    <p class="text-2xl font-bold text-accent mt-2">KSh ${p.price.toLocaleString("en-US")}</p>
     <button data-product="${i}" class="view-product mt-4 w-full bg-accent text-white py-3 rounded">View Product</button>
   </div>`).join("\n")}
 </div>
@@ -257,7 +257,7 @@ ${P.items.map((p, i) => `  <div class="bg-white rounded-xl shadow p-6 relative">
 <div id="productModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 px-4" role="dialog" aria-modal="true">
 <div class="bg-white rounded-xl p-6 max-w-md w-full relative">
 <button onclick="closeModal()" aria-label="Close" class="absolute top-3 right-4 text-xl">✕</button>
-<img id="modalImg" alt="" class="rounded mb-4 w-full h-40 object-cover">
+<img id="modalImg" alt="" class="rounded mb-4 w-full h-56 object-contain">
 <h3 id="modalName" class="text-2xl font-bold mb-2"></h3>
 <p id="modalPrice" class="text-xl text-accent font-semibold"></p>
 <p id="modalUnit" class="text-sm text-gray-500 mb-4"></p>
